@@ -1,7 +1,20 @@
-console.log("Namaste");
+const cart = ["shoes","pants","kurta"];
 
-setTimeout(function() {
-    console.log("Javascript");
-},5000)
+//create order
+api.createOrder(cart, function () {
+//proceed to payment
+    api.proceedToPayment(function() {
+        //ordersummary
+        api.showOrderSummary(function() {
+            //updatewallet
+        api.updateWallet()
+       })
+    })
+})
 
-console.log("Season 2");
+
+//The above structure is known as the Pyramid of doom
+
+
+
+
