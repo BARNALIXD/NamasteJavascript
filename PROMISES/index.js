@@ -7,12 +7,26 @@ promise.then(function(){
     proceedToPayment(orderId);
 })
 
-///producer part
+///producer end
 
 function createOrder(cart) {
-    //resolve and reject orders are given by the javascript function in order to create promises
     const pr = new Promise(function(resolve, reject){
 
-    });
+        
+    //reject
+    if(validateCart(cart)){
+        const err = new Error("Cart is not valid");
+           reject(err);
+    }
+
+    //resolve
+    const orderId = "12345";
+    if(orderId){
+        resolve(orderId);
+    }
+});
+
+
+
     return pr;
 }
