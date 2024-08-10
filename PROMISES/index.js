@@ -1,10 +1,11 @@
 const cart = ["shoes","skirt","tops"];
 
 
-const promise = creatOrder(cart);//order id
+const promise = creatOrder(cart);
 
 promise.then(function(){
-    proceedToPayment(orderId);
+    console.log(orderId);
+    //proceedToPayment(orderId);
 })
 
 ///producer end
@@ -12,7 +13,7 @@ promise.then(function(){
 function createOrder(cart) {
     const pr = new Promise(function(resolve, reject){
 
-        
+
     //reject
     if(validateCart(cart)){
         const err = new Error("Cart is not valid");
@@ -25,8 +26,10 @@ function createOrder(cart) {
         resolve(orderId);
     }
 });
+   return pr;
+}
+ 
 
-
-
-    return pr;
+function validateCart(cart) {
+    return true;
 }
