@@ -1,11 +1,29 @@
-const GITHUB_API = "https://github.com/users.barnalixd"
+const cart = ["pants","shorts","tops"];
 
-//fetch the user info by this function 
-const user = fetch(GITHUB_API);
-//as soon as the line of code is executed will get the promise as the user fetch returns us a promise
-console.log(user);
+createOrder(cart,function(orderId){
+    proceedToPayment(orderId,function(paymentInfo){
+        showOrderSummary(paymentInfo,function(){
+            updateWallletBalance();
+        });
+    });
+});
 
-//attaching call backs to promises
-user.then(function(data){
-    console.log(data);
+//PROMISE CHAINING
+createOrder (cart)
+.then(function(orderId){
+  return  proceedToPayment(orderId);
 })
+.then(function(paymentInfo){
+ return   showOrderSummary(paymentInfo);
+})
+.then(function(paymentInfo){
+  return  updateWallletBalance(paymentInfo);
+})
+// always remember to return .then() 
+
+
+//PROMISE CHAINING USING ARROW FUNCTION
+createOrder (cart)
+.then(orderId => proceedToPayment(orderId))
+.then(paymentInfo => showOrderSummary(paymentInfo))
+.then(paymentInfo => updateWallletBalance(paymentInfo))
