@@ -27,3 +27,4 @@ createOrder (cart)
 .then(orderId => proceedToPayment(orderId))
 .then(paymentInfo => showOrderSummary(paymentInfo))
 .then(paymentInfo => updateWallletBalance(paymentInfo))
+ 
