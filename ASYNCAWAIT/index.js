@@ -1,5 +1,11 @@
+
+const pr = new Promise((resolve, reject) => {
+resolve("success");
+});
+
+
 async function getData() {
-    return "namaste";
+    return pr;
 }
 
 const dataPromise = getData();
