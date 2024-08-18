@@ -5,9 +5,8 @@ const p1 = new Promise((resolve, reject) => {
 })
 
 const p2 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("Result from p2");
-    }, 3000);
+    // setTimeout(() => {resolve("Result from p2");}, 3000);
+    setTimeout(() => {reject("result from p2")}, 3000);
 })
 
 const p3 = new Promise((resolve, reject) => {
