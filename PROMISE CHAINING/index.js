@@ -3,9 +3,17 @@ const cart = ["shoes", "pants", "tops"];
 const promise = createOrder(cart);
 console.log(promise);
  //orderId
-promise.then(function (orderId) {
+promise
+.then(function (orderId) {
     console.log(orderId);
+})
+.catch(function(err){
+    console.log("Error: ", err.message);
+    // Handle error here
 });
+
+
+
 
 
 function createOrder(cart) {
@@ -29,5 +37,5 @@ function createOrder(cart) {
 
 }
 function validateCart(cart) {
-    return true;
+    return false;
 }
